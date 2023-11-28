@@ -1,3 +1,8 @@
+import { GiTreeBranch } from "react-icons/gi";
+import { BiHappyBeaming } from "react-icons/bi";
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import { BsPlusCircle } from "react-icons/bs";
+import { AiOutlineHome } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import React, { useState } from "react";
 import "./header.scss";
@@ -9,29 +14,40 @@ export default function Header() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    <AiOutlineHome />;
   };
 
   return (
     <div className="App">
       <nav className="navbar">
         <div className="logo">
-          <img src={logo} className="logo" />
+          <GiTreeBranch fontSize={40} /> LOGO
         </div>
         <button className="menu-button" onClick={toggleMenu}>
           <GiHamburgerMenu />
         </button>
         <ul className={`menu ${menuOpen ? "open" : ""}`}>
           <li>
-            <a href="/">Boas-Vindas</a>
+            {" "}
+            <AiOutlineHome fontSize={27} />
+            <a href="/"> Boas-Vindas</a>
           </li>
           <li>
+            {" "}
+            <BsPlusCircle fontSize={27} />
             <a href="form">Adicionar Lista</a>
           </li>
           <li>
-            <a href="atividades">Listar Tarefas</a>
+            {" "}
+            <AiOutlineUnorderedList fontSize={27} />
+            <a href="atividades"> Listar Tarefas</a>
           </li>
         </ul>
-        <span>Pontos: {pontos}</span>
+        <span className="pontos">
+          {" "}
+          <BiHappyBeaming fontSize={34} />
+          Pontos: {pontos}
+        </span>
       </nav>
     </div>
   );
