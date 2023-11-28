@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.127);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+
+    img {
+      width: 45px;
+    }
+  }
+
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(23, 23, 23);
+
+    font-size: 20px;
+    display: none;
+  }
+
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    animation: slideDown 0.5s ease-in-out forwards;
+    /* Aplica a animação */
+    margin-top: 20px;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        text-decoration: none;
+        color: rgb(23, 23, 23);
+
+      }
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Media Query para tornar o menu responsivo */
+  @media screen and (max-width: 768px) {
+    .menu-button {
+      display: block;
+    }
+
+    .menu {
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      display: none;
+
+      &.open {
+        display: flex;
+      }
+
+      li {
+        margin: 10px 0;
+
+        a {
+          color: white;
+
+        }
+
+      }
+    }
+  }
+}
