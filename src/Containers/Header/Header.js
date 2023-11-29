@@ -8,14 +8,19 @@ import React, { useState } from "react";
 import "./header.scss";
 import logo from "../../images/logo.png";
 import FormularioAtividade from "../Formulario/index";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [pontos, setPontos] = useState(0);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    <AiOutlineHome />;
+    // <AiOutlineHome />; // Removido, não parece ser necessário aqui
   };
+
+  function reloadPoints() {
+    window.location.reload(true);
+  }
 
   return (
     <div className="App">
@@ -43,11 +48,20 @@ export default function Header() {
             <a href="atividades"> Listar Tarefas</a>
           </li>
         </ul>
-        <span className="pontos">
+        {/* <div
+          className="caixa-de-texto"
+          title="Para Recarregar os pontos clique aqui!"
+        > */}
+        <span
+          className="pontos"
+          onClick={reloadPoints}
+          title="Para Recarregar os pontos clique aqui!"
+        >
           {" "}
           <BiHappyBeaming fontSize={34} />
           Pontos: {localStorage.getItem("pontos")}
         </span>
+        {/* </div> */}
       </nav>
     </div>
   );

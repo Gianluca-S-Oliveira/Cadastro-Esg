@@ -27,6 +27,7 @@ const Atividades = () => {
   localStorage.setItem("pontos", totalPontos);
   return (
     <div id="atividades">
+      pontos atuais:{totalPontos}
       <h2>Lista de Atividades</h2>
       {atividades.map((atividade, index) => (
         <div key={index} style={{ marginBottom: "20px" }}>
@@ -44,7 +45,6 @@ const Atividades = () => {
           <hr />
         </div>
       ))}
-      {totalPontos}
     </div>
   );
 };
