@@ -46,7 +46,7 @@ export default function Header() {
         <span className="pontos">
           {" "}
           <BiHappyBeaming fontSize={34} />
-          Pontos: {pontos}
+          Pontos: {localStorage.getItem("pontos")}
         </span>
       </nav>
     </div>
