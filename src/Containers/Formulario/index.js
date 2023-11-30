@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import "./form.scss";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import bgimg from "../../images/bgFundo.jpg";
 
 const FormularioAtividade = () => {
   const [tipoAtividade, setTipoAtividade] = useState("");
   const [descricao, setDescricao] = useState("");
   const [localizacao, setLocalizacao] = useState("");
+
   const [categorias, setCategorias] = useState({
     eventoSustentavel: false,
     impactoSocial: false,
@@ -30,6 +36,16 @@ const FormularioAtividade = () => {
   };
 
   const handleSubmit = (event) => {
+    toast.success("Atividade Registrada com sucesso!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     event.preventDefault();
 
     // Cria um objeto com os dados do formulário
@@ -54,6 +70,7 @@ const FormularioAtividade = () => {
     setTipoAtividade("");
     setDescricao("");
     setLocalizacao("");
+
     setCategorias({
       eventoSustentavel: false,
       impactoSocial: false,
@@ -62,72 +79,119 @@ const FormularioAtividade = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Tipo de Atividade</label>
-        <select value={tipoAtividade} onChange={handleTipoAtividadeChange}>
-          <option value="">Selecione o tipo de atividade</option>
-          <option value="reciclagem">Reciclagem (5 pontos)</option>
-          <option value="eventoSustentavel">
-            Evento Sustentável (15 pontos)
-          </option>
-          <option value="economiaEnergia">
-            Economia de Energia (10 pontos)
-          </option>
-          <option value="plantioArvore">Plantio de Árvore (20 pontos)</option>
-        </select>
-      </div>
+    <>
+      {" "}
+      <div
+        className="img
 
-      <div>
-        <label>Descrição da Atividade</label>
-        <input type="text" value={descricao} onChange={handleDescricaoChange} />
-      </div>
 
-      <div>
-        <label>Localização</label>
-        <input
-          type="text"
-          value={localizacao}
-          onChange={handleLocalizacaoChange}
-        />
-      </div>
-
-      <div>
-        <label>Categoria</label>
-        <div>
-          <label>
+    "
+      >
+        {" "}
+        <img className="" src={bgimg} />{" "}
+      </div>{" "}
+      <form onSubmit={handleSubmit} className="form">
+        {" "}
+        <h2 className="">REGISTRO DE ATIVIDADE ESG</h2>{" "}
+        <div className="formConteudo">
+          {" "}
+          <div className="tipoAtiv">
+            {" "}
+            <label className="tituloForm">Tipo de Atividade:</label>{" "}
+            <select
+              value={tipoAtividade}
+              onChange={handleTipoAtividadeChange}
+              className="select"
+            >
+              {" "}
+              <option value="">Selecione o tipo de atividade</option>{" "}
+              <option value="reciclagem">Reciclagem (5 pontos)</option>{" "}
+              <option value="eventoSustentavel">
+                {" "}
+                Evento Sustentável (15 pontos){" "}
+              </option>{" "}
+              <option value="economiaEnergia">
+                {" "}
+                Economia de Energia (10 pontos){" "}
+              </option>{" "}
+              <option value="plantioArvore">
+                {" "}
+                Plantio de Árvore (20 pontos){" "}
+              </option>{" "}
+            </select>{" "}
+          </div>{" "}
+          <div className="descricaoAtv">
+            {" "}
+            <label className="tituloForm">Descrição da Atividade:</label>{" "}
             <input
-              type="checkbox"
-              checked={categorias.eventoSustentavel}
-              onChange={() => handleCategoriaChange("eventoSustentavel")}
-            />
-            Evento Sustentável
-          </label>
-        </div>
-        <div>
-          <label>
+              type="text"
+              value={descricao}
+              onChange={handleDescricaoChange}
+            />{" "}
+          </div>{" "}
+          <div className="localizacaoAtv">
+            {" "}
+            <label className="tituloForm">Localização:</label>{" "}
             <input
-              type="checkbox"
-              checked={categorias.impactoSocial}
-              onChange={() => handleCategoriaChange("impactoSocial")}
-            />
-            Impacto Social
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={categorias.governanca}
-              onChange={() => handleCategoriaChange("governanca")}
-            />
-            Governança
-          </label>
-        </div>
-      </div>
-
-      <button type="submit">Adicionar</button>
-    </form>
+              type="text"
+              value={localizacao}
+              onChange={handleLocalizacaoChange}
+            />{" "}
+          </div>{" "}
+          <div className="categoriaAtv">
+            {" "}
+            <label className="tituloForm">Categoria:</label>{" "}
+            <div>
+              {" "}
+              <label className="optionCheck">
+                {" "}
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={categorias.eventoSustentavel}
+                  onChange={() => handleCategoriaChange("eventoSustentavel")}
+                />{" "}
+                Evento Sustentável{" "}
+              </label>{" "}
+            </div>{" "}
+            <div>
+              {" "}
+              <label className="optionCheck">
+                {" "}
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={categorias.impactoSocial}
+                  onChange={() => handleCategoriaChange("impactoSocial")}
+                />{" "}
+                Impacto Social{" "}
+              </label>{" "}
+            </div>{" "}
+            <div>
+              {" "}
+              <label className="optionCheck">
+                {" "}
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={categorias.governanca}
+                  onChange={() => handleCategoriaChange("governanca")}
+                />{" "}
+                Governança{" "}
+              </label>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+        <button type="submit">Adicionar</button>{" "}
+      </form>{" "}
+      <ToastContainer
+        style={{
+          width: "450px",
+          height: "500px",
+          fontSize: "1.3rem",
+        }}
+      />{" "}
+    </>
   );
 };
 
