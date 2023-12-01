@@ -1,3 +1,4 @@
+import { TiWeatherSunny } from "react-icons/ti";
 import { GiTreeBranch } from "react-icons/gi";
 import { BiHappyBeaming } from "react-icons/bi";
 import { AiOutlineUnorderedList } from "react-icons/ai";
@@ -47,11 +48,13 @@ export default function Header() {
             <AiOutlineUnorderedList fontSize={27} />
             <a href="atividades"> Listar Tarefas</a>
           </li>
+          <li>
+            {" "}
+            <TiWeatherSunny fontSize={27} />
+            <a href="clima"> Verificar Clima</a>
+          </li>
         </ul>
-        {/* <div
-          className="caixa-de-texto"
-          title="Para Recarregar os pontos clique aqui!"
-        > */}
+
         <span
           className="pontos"
           onClick={reloadPoints}
