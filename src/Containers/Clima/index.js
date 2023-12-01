@@ -48,7 +48,7 @@ const Clima = () => {
 
   return (
     <>
-      <h1 className="">
+      <h1 style={{ color: "green", fontSize: "1.6rem" }}>
         Pesquise o nome do lugar incluindo cidades e estados onde <br />
         deseja fazer sua ação, para conferir o clima como está!
       </h1>
